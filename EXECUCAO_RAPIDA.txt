@@ -1,0 +1,34 @@
+================================================================================
+  COMO EXECUTAR A API E ACESSAR O SWAGGER
+================================================================================
+
+PASSO 1: Abra o PowerShell
+
+PASSO 2: Execute estes comandos:
+
+  cd "c:\Projetos\Auria\clientes\P0004 - Agricampanha\dev\backend\Auria.API"
+  dotnet run --urls "http://localhost:5000"
+
+PASSO 3: Aguarde ver estas mensagens:
+
+  Now listening on: http://localhost:5000
+  Application started. Press Ctrl+C to shut down.
+
+PASSO 4: Abra o navegador e acesse:
+
+  http://localhost:5000/swagger
+
+PRONTO! O Swagger deve aparecer!
+
+================================================================================
+
+IMPORTANTE:
+- NÃO FECHE a janela do PowerShell enquanto usa a API
+- A aplicação deve ficar RODANDO (mensagem "Now listening...")
+- Se der erro, veja o arquivo: RUN_API.md
+
+CREDENCIAIS:
+- Login: admin
+- Senha: admin123
+
+================================================================================

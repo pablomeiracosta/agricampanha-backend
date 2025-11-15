@@ -1,0 +1,66 @@
+# Build results
+**/bin/
+**/obj/
+**/out/
+**/deploy/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet packages
+*.nupkg
+**/packages/*
+
+# Node modules (if any)
+**/node_modules/
+
+# Logs
+**/logs/
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation and scripts (optional - remove if you want them in the image)
+*.md
+*.ps1
+*.csx
+*.txt
+*.sql
+Postman/
+Scripts/
+SqlRunner/
+sql-scripts/
+GerarHash/
+
+# Test files
+test-*.ps1
+test-*.json
+teste-*.jpg
+nul

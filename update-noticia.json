@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "titulo": "Noticia Atualizada via JSON",
+  "subtitulo": "Teste de atualizacao com JSON",
+  "categoriaId": 1,
+  "dataNoticia": "2025-11-05T00:00:00",
+  "fonte": "Teste Atualizado",
+  "texto": "Texto da noticia atualizado via PUT JSON",
+  "imagemUrl": "https://example.com/nova-imagem.jpg"
+}

@@ -1,0 +1,290 @@
+{
+  "info": {
+    "name": "Auria API - Agricampanha",
+    "description": "Collection para testar a API Auria",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:5001",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.token) {",
+                  "        pm.collectionVariables.set(\"token\", jsonData.token);",
+                  "        console.log(\"Token salvo:\", jsonData.token);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"admin\",\n  \"senha\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Noticias",
+      "item": [
+        {
+          "name": "Listar Todas as Notícias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias"]
+            }
+          }
+        },
+        {
+          "name": "Obter Notícia por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Listar Notícias por Categoria",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias/categoria/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias", "categoria", "1"]
+            },
+            "description": "Categorias: 1-Eventos, 2-Institucional, 3-Social, 4-Mercado, 5-Técnico"
+          }
+        },
+        {
+          "name": "Criar Notícia (sem imagem)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "titulo",
+                  "value": "Título da Notícia",
+                  "type": "text"
+                },
+                {
+                  "key": "subtitulo",
+                  "value": "Subtítulo da notícia",
+                  "type": "text"
+                },
+                {
+                  "key": "categoria",
+                  "value": "1",
+                  "type": "text",
+                  "description": "1-Eventos, 2-Institucional, 3-Social, 4-Mercado, 5-Técnico"
+                },
+                {
+                  "key": "dataNoticia",
+                  "value": "2024-01-15T10:00:00",
+                  "type": "text"
+                },
+                {
+                  "key": "fonte",
+                  "value": "Redação",
+                  "type": "text"
+                },
+                {
+                  "key": "texto",
+                  "value": "Texto completo da notícia...",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias"]
+            }
+          }
+        },
+        {
+          "name": "Criar Notícia (com imagem)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "titulo",
+                  "value": "Título da Notícia com Imagem",
+                  "type": "text"
+                },
+                {
+                  "key": "subtitulo",
+                  "value": "Subtítulo da notícia com imagem",
+                  "type": "text"
+                },
+                {
+                  "key": "categoria",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "dataNoticia",
+                  "value": "2024-01-15T10:00:00",
+                  "type": "text"
+                },
+                {
+                  "key": "fonte",
+                  "value": "Redação",
+                  "type": "text"
+                },
+                {
+                  "key": "texto",
+                  "value": "Texto completo da notícia...",
+                  "type": "text"
+                },
+                {
+                  "key": "imagem",
+                  "type": "file",
+                  "src": "",
+                  "description": "Selecione uma imagem (jpg, png, gif)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Notícia",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "titulo",
+                  "value": "Título Atualizado",
+                  "type": "text"
+                },
+                {
+                  "key": "subtitulo",
+                  "value": "Subtítulo Atualizado",
+                  "type": "text"
+                },
+                {
+                  "key": "categoria",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "dataNoticia",
+                  "value": "2024-01-15T10:00:00",
+                  "type": "text"
+                },
+                {
+                  "key": "fonte",
+                  "value": "Redação",
+                  "type": "text"
+                },
+                {
+                  "key": "texto",
+                  "value": "Texto atualizado da notícia...",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Notícia",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/noticias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "noticias", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

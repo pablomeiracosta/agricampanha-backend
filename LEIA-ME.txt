@@ -1,0 +1,164 @@
+================================================================================
+  AURIA API - AGRICAMPANHA
+  Backend .NET 8 - Sistema de Gerenciamento de Notícias
+================================================================================
+
+CORREÇÃO APLICADA: O Swagger foi corrigido e agora funciona corretamente!
+
+================================================================================
+  INÍCIO RÁPIDO
+================================================================================
+
+1. CONFIGURAR BANCO DE DADOS
+   - Abra PowerShell nesta pasta
+   - Execute: .\setup-database.ps1
+
+2. INICIAR A API
+   - Execute: .\start.ps1
+
+3. ACESSAR SWAGGER
+   - Abra navegador em: https://localhost:5001/swagger
+
+4. FAZER LOGIN
+   - Login: admin
+   - Senha: admin123
+
+================================================================================
+  DOCUMENTAÇÃO
+================================================================================
+
+COMECE AQUI:
+  → START_HERE.md - Guia de início rápido
+
+PROBLEMA COM SWAGGER?
+  → SWAGGER_SETUP.md - Guia completo do Swagger
+
+DOCUMENTAÇÃO COMPLETA:
+  → INDEX.md - Índice de toda documentação
+  → README.md - Documentação principal
+  → QUICK_START.md - Guia passo a passo
+  → PROJECT_SUMMARY.md - Visão geral do projeto
+
+DESENVOLVIMENTO:
+  → ARCHITECTURE.md - Arquitetura do sistema
+  → COMMANDS.md - Comandos úteis
+  → SECURITY.md - Guia de segurança
+
+================================================================================
+  ESTRUTURA DO PROJETO
+================================================================================
+
+backend/
+├── Auria.API/          → Controllers e configurações
+├── Auria.Bll/          → Lógica de negócio
+├── Auria.Data/         → Entity Framework e Repositórios
+├── Auria.Dto/          → Objetos de transferência
+└── Auria.Structure/    → Configurações e contexto
+
+================================================================================
+  SCRIPTS DISPONÍVEIS
+================================================================================
+
+start.ps1               → Inicia a API
+setup-database.ps1      → Cria/atualiza banco de dados
+setup-database.ps1 -Reset → Recria banco do zero
+
+================================================================================
+  TECNOLOGIAS
+================================================================================
+
+- .NET 8
+- ASP.NET Core Web API
+- Entity Framework Core
+- SQL Server
+- JWT Authentication
+- Swagger/OpenAPI
+- Serilog
+- AutoMapper
+- FluentValidation
+- Cloudinary
+
+================================================================================
+  ENDPOINTS PRINCIPAIS
+================================================================================
+
+AUTENTICAÇÃO:
+  POST /api/auth/login
+
+NOTÍCIAS:
+  GET    /api/noticias
+  GET    /api/noticias/{id}
+  GET    /api/noticias/categoria/{categoria}
+  POST   /api/noticias         (requer autenticação)
+  PUT    /api/noticias/{id}    (requer autenticação)
+  DELETE /api/noticias/{id}    (requer autenticação)
+
+================================================================================
+  URLS DA APLICAÇÃO
+================================================================================
+
+HTTPS:   https://localhost:5001
+HTTP:    http://localhost:5000
+Swagger: https://localhost:5001/swagger
+
+================================================================================
+  PROBLEMAS COMUNS
+================================================================================
+
+SWAGGER NÃO ABRE:
+  1. Verifique se a aplicação está rodando (.\start.ps1)
+  2. Acesse: https://localhost:5001/swagger
+  3. Leia: SWAGGER_SETUP.md
+
+ERRO DE CERTIFICADO SSL:
+  Execute: dotnet dev-certs https --trust
+
+PORTA JÁ EM USO:
+  netstat -ano | findstr :5001
+  taskkill /PID <número> /F
+
+ERRO NO BANCO DE DADOS:
+  1. Verifique se SQL Server está rodando
+  2. Confira appsettings.json
+
+================================================================================
+  CONFIGURAÇÃO NECESSÁRIA
+================================================================================
+
+OBRIGATÓRIO:
+  → Connection String em appsettings.json
+
+OPCIONAL (para upload de imagens):
+  → Credenciais Cloudinary em appsettings.json
+
+================================================================================
+  SUPORTE
+================================================================================
+
+Consulte a documentação em:
+  → START_HERE.md para início rápido
+  → INDEX.md para índice completo
+  → SWAGGER_SETUP.md para problemas com Swagger
+
+================================================================================
+  CHECKLIST DE PRODUÇÃO
+================================================================================
+
+Antes de fazer deploy em produção:
+  □ Alterar senha do usuário admin
+  □ Configurar JWT SecretKey segura
+  □ Configurar CORS para domínios específicos
+  □ Habilitar HTTPS
+  □ Revisar SECURITY.md
+  □ Configurar backup do banco
+  □ Testar todos os endpoints
+
+================================================================================
+
+Desenvolvido para Agricampanha
+Versão: 1.0.0
+Ano: 2025
+
+Para mais informações, abra START_HERE.md
+
+================================================================================
