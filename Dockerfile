@@ -40,3 +40,4 @@ ENV ASPNETCORE_URLS=http://+:80
 
 # Run the application
 ENTRYPOINT ["dotnet", "Auria.API.dll"]
+
