@@ -147,6 +147,36 @@ public class ProjetosController : ControllerBase
     }
 
     /// <summary>
+    /// Retorna projetos públicos (apenas ativos) - Acesso sem autenticação
+    /// </summary>
+    /// <returns>Lista de projetos públicos</returns>
+    [HttpGet("publicos")]
+    [AllowAnonymous]
+    [ProducesResponseType(typeof(List<ProjetoDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<List<ProjetoDto>>> GetPublicos()
+    {
+        try
+        {
+            _auriaContext.Log.Information("Buscando projetos públicos");
+
+            var projetos = await _context.Projetos
+                .Include(p => p.GaleriaFotos)
+                    .ThenInclude(g => g.Fotos.OrderBy(f => f.Ordem))
+                .Where(p => p.Ativo)
+                .OrderByDescending(p => p.DataCriacao)
+                .ToListAsync();
+
+            var projetosDto = _mapper.Map<List<ProjetoDto>>(projetos);
+            return Ok(projetosDto);
+        }
+        catch (Exception ex)
+        {
+            _auriaContext.Log.Error(ex, "Erro ao buscar projetos públicos");
+            return StatusCode(500, new { message = "Erro ao buscar projetos públicos", error = ex.Message });
+        }
+    }
+
+    /// <summary>
     /// Cria um novo projeto
     /// </summary>
     /// <param name="projetoDto">Dados do projeto</param>

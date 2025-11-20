@@ -37,7 +37,13 @@
       "Bash(git init:*)",
       "Bash(git add:*)",
       "Bash(git reset:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(BASE_URL=\"http://website-website-agricampanha.yse2j4.easypanel.host:5000\":*)",
+      "Bash(echo \"=== 1. AUTH ENDPOINTS ===\" echo \"\" echo \"POST /api/Auth/login\" curl -s -X POST \"$BASE_URL/api/Auth/login\" -H \"Content-Type: application/json\" -d '{\"\"\"\"login\"\"\"\":\"\"\"\"admin\"\"\"\",\"\"\"\"senha\"\"\"\":\"\"\"\"admin123\"\"\"\"}')",
+      "Bash(c:tempauth_response.json)",
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJBZG1pbmlzdHJhZG9yIiwibG9naW4iOiJhZG1pbiIsIm5iZiI6MTc2MzU3OTg2OCwiZXhwIjoxNzYzNjA4NjY4LCJpYXQiOjE3NjM1Nzk4NjgsImlzcyI6IkF1cmlhQVBJIiwiYXVkIjoiQXVyaWFDbGllbnQifQ.-iqicjEIU6thfJUO4i3k6KFdJnz6ULjQgAQ_bLC7RVo\")",
+      "Bash(npm run build:*)",
+      "Bash(timeout 5 curl:*)"
     ],
     "deny": [],
     "ask": []
