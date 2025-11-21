@@ -43,7 +43,11 @@
       "Bash(c:tempauth_response.json)",
       "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJBZG1pbmlzdHJhZG9yIiwibG9naW4iOiJhZG1pbiIsIm5iZiI6MTc2MzU3OTg2OCwiZXhwIjoxNzYzNjA4NjY4LCJpYXQiOjE3NjM1Nzk4NjgsImlzcyI6IkF1cmlhQVBJIiwiYXVkIjoiQXVyaWFDbGllbnQifQ.-iqicjEIU6thfJUO4i3k6KFdJnz6ULjQgAQ_bLC7RVo\")",
       "Bash(npm run build:*)",
-      "Bash(timeout 5 curl:*)"
+      "Bash(timeout 5 curl:*)",
+      "Bash(npm start)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
