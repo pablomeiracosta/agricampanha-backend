@@ -46,6 +46,7 @@ auriaContext.ConfigureMapper(mapper);
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<INoticiaRepository, NoticiaRepository>();
 builder.Services.AddScoped<ICategoriaNoticiaRepository, CategoriaNoticiaRepository>();
+builder.Services.AddScoped<ICotacaoRepository, CotacaoRepository>();
 
 // Registra Services
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -53,6 +54,7 @@ builder.Services.AddScoped<INoticiaService, NoticiaService>();
 builder.Services.AddScoped<ICategoriaNoticiaService, CategoriaNoticiaService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 builder.Services.AddScoped<IEmailService, GmailService>();
+builder.Services.AddScoped<ICotacaoService, CotacaoService>();
 
 // Configura Controllers com limites aumentados
 builder.Services.AddControllers(options =>

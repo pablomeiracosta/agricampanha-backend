@@ -4,6 +4,7 @@ using Auria.Dto.Categorias;
 using Auria.Dto.Noticias;
 using Auria.Dto.GaleriaFotos;
 using Auria.Dto.Projetos;
+using Auria.Dto.Cotacoes;
 
 namespace Auria.API.Mappings;
 
@@ -78,5 +79,20 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.DataAtualizacao, opt => opt.Ignore())
             .ForMember(dest => dest.Ativo, opt => opt.Ignore())
             .ForMember(dest => dest.GaleriaFotos, opt => opt.Ignore());
+
+        // Mapeamento de Cotacao
+        CreateMap<Cotacao, CotacaoDto>();
+        CreateMap<Cotacao, CotacaoComTendenciaDto>()
+            .ForMember(dest => dest.TendenciaSoja, opt => opt.Ignore())
+            .ForMember(dest => dest.TendenciaArroz, opt => opt.Ignore())
+            .ForMember(dest => dest.TendenciaMilho, opt => opt.Ignore());
+
+        CreateMap<CotacaoCreateDto, Cotacao>()
+            .ForMember(dest => dest.IdCotacao, opt => opt.Ignore())
+            .ForMember(dest => dest.DataCadastro, opt => opt.Ignore());
+
+        CreateMap<CotacaoUpdateDto, Cotacao>()
+            .ForMember(dest => dest.IdCotacao, opt => opt.Ignore())
+            .ForMember(dest => dest.DataCadastro, opt => opt.Ignore());
     }
 }

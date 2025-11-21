@@ -15,6 +15,7 @@ public class AuriaDbContext : DbContext
     public DbSet<GaleriaFotos> GaleriasFotos { get; set; }
     public DbSet<Foto> Fotos { get; set; }
     public DbSet<Projeto> Projetos { get; set; }
+    public DbSet<Cotacao> Cotacoes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -67,5 +68,9 @@ public class AuriaDbContext : DbContext
 
         modelBuilder.Entity<Projeto>()
             .HasIndex(p => p.DataCriacao);
+
+        // Configurar índice para Cotacao
+        modelBuilder.Entity<Cotacao>()
+            .HasIndex(c => c.DataCadastro);
     }
 }
